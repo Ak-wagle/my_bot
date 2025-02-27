@@ -17,14 +17,17 @@ def generate_launch_description():
     rsp = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
             get_package_share_directory(package_name), 'launch', 'rsp.launch.py'
-        )]), launch_arguments={'use_sim_time': 'true'}.items()
+        )]), launch_arguments={'use_sim_time': 'true', 'use_ros2_control': 'true'}.items()
     )
+
+    gazebo_params_file = os.path.join(get_package_share_directory(package_name),'config','gazebo_params.yaml')
     
     # Gazebo launch file, provided by the gazebo_ros package
     
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
-            get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')])
+            get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')]),
+            launch_arguments={'extra_gazebo_args': '--ros-args --params-file ' + gazebo_params_file}.items()
     )
     
     # spawner node from the gazebo_ros pkg, the entity name can be anything as we've single robot
@@ -45,6 +48,8 @@ def generate_launch_description():
         executable="spawner",
         arguments=["joint_broad"],
     )
+
+# code for delayed node refer commit https://github.com/joshnewans/articubot_one/commit/bf28006638f36d290c991ffec433e6c326120d41
 
     return LaunchDescription([
         rsp,
