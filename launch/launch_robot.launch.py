@@ -21,6 +21,12 @@ def generate_launch_description():
                 )]), launch_arguments={'use_sim_time': 'false', 'use_ros2_control': 'true'}.items()
     )
 
+    # joystick = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([os.path.join(
+    #         get_package_share_directory(package_name),'launch','joystick.launch.py'
+    #     )])
+    # )
+
     robot_description = Command(['ros2 param get --hide-type /robot_state_publisher robot_description'])
 
     controller_params_file = os.path.join(get_package_share_directory(package_name),'config','my_controllers.yaml')
@@ -77,6 +83,7 @@ def generate_launch_description():
 
     return LaunchDescription([
         rsp,
+        # joystick,
         delayed_controller_manager,
         delayed_diff_drive_spawner,
         delayed_joint_broad_spawner
