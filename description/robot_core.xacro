@@ -56,7 +56,6 @@
     <link name="base_footprint">
     </link>
 
-
     <!-- CHASSIS LINK -->
 
     <joint name="chassis_joint" type="fixed">
