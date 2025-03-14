@@ -1,12 +1,51 @@
-# React + Vite
+# ROS2 Robot Controller
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React-based web application that allows users to control a ROS2 robot using keyboard inputs and on-screen buttons. The commands are sent via `roslibjs` to a ROS2 WebSocket server.
 
-Currently, two official plugins are available:
+## Features
+- Control the robot using arrow keys or `W, A, S, D` keys.
+- Visual buttons for manual control.
+- Real-time WebSocket communication with ROS2.
+- Responsive design with interactive UI.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation & Setup
+### Prerequisites
+Ensure you have the following installed:
+- Node.js & npm
+- A running ROS2 system with `rosbridge_server`
 
-## Expanding the ESLint configuration
+### Clone the Repository
+```sh
+git clone <repository-url>
+cd <repository-folder>
+```
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Install Dependencies
+```sh
+npm install
+```
+
+### Configure ROS2 WebSocket
+Modify the WebSocket URL in `App.jsx`:
+```js
+const ros = new ROSLIB.Ros({
+  url: "ws://<your-ros-ip>:9090", // Replace with your ROS2 WebSocket address
+});
+```
+
+### Run the Application
+```sh
+npm run dev
+```
+
+## Usage
+- Use `W`, `A`, `S`, `D` or arrow keys to control the robot.
+- Click on the on-screen buttons for movement.
+- Press the `?` button to view control instructions.
+
+## License
+This project is open-source and available under the MIT License.
+
+## Contributors
+Feel free to contribute! Fork the repo, make your changes, and submit a pull request.
+
