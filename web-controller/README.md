@@ -1,51 +1,70 @@
-# ROS2 Robot Controller
+# 🚀 ROS2 Robot Controller  
 
-This is a React-based web application that allows users to control a ROS2 robot using keyboard inputs and on-screen buttons. The commands are sent via `roslibjs` to a ROS2 WebSocket server.
+A sleek, React-powered web app for controlling a ROS2 robot—whether with your keyboard or on-screen buttons. It connects to ROS2 via `roslibjs` and provides a live camera feed, making interaction smooth and intuitive.  
 
-## Features
-- Control the robot using arrow keys or `W, A, S, D` keys.
-- Visual buttons for manual control.
-- Real-time WebSocket communication with ROS2.
-- Responsive design with interactive UI.
+---
 
-## Installation & Setup
-### Prerequisites
-Ensure you have the following installed:
-- Node.js & npm
-- A running ROS2 system with `rosbridge_server`
+## ✨ Features  
+- **🎮 Keyboard Controls** – Use `W, A, S, D` or arrow keys for movement.  
+- **🖡️ On-Screen Buttons** – Clickable UI buttons for easy control.  
+- **📱 Live Camera Feed** – Watch real-time visuals from the robot's camera.  
+- **🔗 Seamless ROS2 Communication** – Uses `rosbridge_server` for real-time data exchange.  
+- **⚡ Responsive & Interactive UI** – Optimized design with animations and visual feedback.  
+- **🔄 Auto Reconnect** – Keeps the WebSocket connection alive.  
 
-### Clone the Repository
+---
+
+## ⚙️ Installation & Setup  
+
+### 🛠 Prerequisites  
+Make sure you have:  
+✅ **Node.js & npm** (to run the React app)  
+✅ **A running ROS2 system with `rosbridge_server`**  
+
+### 📅 Clone the Repository  
 ```sh
 git clone <repository-url>
 cd <repository-folder>
-```
+```  
 
-### Install Dependencies
+### 📦 Install Dependencies  
 ```sh
 npm install
-```
+```  
 
-### Configure ROS2 WebSocket
-Modify the WebSocket URL in `App.jsx`:
+### 🔧 Configure ROS2 WebSocket  
+Edit `App.jsx` to match your ROS2 WebSocket server:  
 ```js
 const ros = new ROSLIB.Ros({
   url: "ws://<your-ros-ip>:9090", // Replace with your ROS2 WebSocket address
 });
-```
+```  
 
-### Run the Application
+### 🚀 Run the App  
 ```sh
 npm run dev
-```
+```  
 
-## Usage
-- Use `W`, `A`, `S`, `D` or arrow keys to control the robot.
-- Click on the on-screen buttons for movement.
-- Press the `?` button to view control instructions.
+---
 
-## License
-This project is open-source and available under the MIT License.
+## 🎯 How to Use  
+- **🎮 Keyboard Shortcuts:**  
+  - Move Forward → `W / ↑`  
+  - Move Left → `A / ←`  
+  - Move Backward → `S / ↓`  
+  - Move Right → `D / →`  
+- **🖡️ Mouse Controls:** Click the UI buttons to move the robot.  
+- **📱 Live Camera Feed:** View at:  
+  ```
+  http://<your-ros-ip>:8080/stream?topic=/camera/image_raw
+  ```  
 
-## Contributors
-Feel free to contribute! Fork the repo, make your changes, and submit a pull request.
+---
+
+## 🛠 Troubleshooting  
+🚧 **Connection Issues?**  
+✔️ Ensure `rosbridge_server` is running.  
+✔️ Double-check the WebSocket URL in the code.  
+✔️ Run `npm install` to fix missing dependencies.  
+✔️ Restart the app if the connection drops.  
 
