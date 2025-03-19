@@ -28,7 +28,7 @@ ros2 launch my_bot launch_sim.launch.py
 ```
 2. Start `rosbridge_server`:
 ```sh
-ros2 launch rosbridge_server rosbridge_websocket.launch.xml
+ros2 launch rosbridge_server rosbridge_websocket_launch.xml
 ```
 
 3. Start `web_video_server` for the camera feed:
